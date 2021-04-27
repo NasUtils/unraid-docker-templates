@@ -9,7 +9,7 @@
     <Project>https://github.com/john-shine/Docker-CodeWeavers_CrossOver-VNC/tree/master/BaiduNetdisk</Project>
     <Overview>baidunetdisk</Overview>
     <Description>
-        百度云客户端的docker镜像
+        百度云客户端的docker镜像，使用vnc访问
     </Description>
     <Category>download:</Category>
     <WebUI>http://[IP]:[PORT:6082]/vnc.html?autoconnect=true</WebUI>
