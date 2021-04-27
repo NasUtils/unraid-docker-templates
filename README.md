@@ -102,6 +102,8 @@ chmod a+x install-tr-control-cn.sh
 
 安装容器前，先配置共享文件夹download，安装容器时，要配置下载路径/downloads，映射到主机路径/mnt/user/download。
 
+添加模板存储库地址：https://github.com/P3TERX/unraid-docker-templates
+
 -----------
 
 ## 内网穿透
