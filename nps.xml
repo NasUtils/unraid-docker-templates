@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<Container>
+    <Name>nps</Name>
+    <Repository>docker.mirrors.ustc.edu.cn/ffdfgdfg/nps</Repository>
+    <Registry>https://hub.docker.com/r/ffdfgdfg/nps</Registry>
+    <Network>host</Network>
+    <Privileged>false</Privileged>
+    <Support>https://ehang-io.github.io/nps</Support>
+    <Project>https://github.com/ehang-io/nps</Project>
+    <Overview>nps</Overview>
+    <Description>
+        一款轻量级、高性能、功能强大的内网穿透代理服务器。支持tcp、udp、socks5、http等几乎所有流量转发，
+        可用来访问内网网站、本地支付接口调试、ssh访问、远程桌面，内网dns解析、内网socks5代理等等……，并带有功能强大的web管理端。
+    </Description>
+    <Category>Cloud: Network:Web Status:Stable</Category>
+    <WebUI>http://[IP]:[PORT:18080]</WebUI>
+    <Icon>https://ehang-io.github.io/nps/logo.svg</Icon>
+    <Data>
+        <Volume>
+            <HostDir>/mnt/user/appdata/nps</HostDir>
+            <ContainerDir>/conf</ContainerDir>
+            <Mode>rw</Mode>
+        </Volume>
+    </Data>
+    <Environment>
+        <Variable>
+            <Value>0</Value>
+            <Name>PUID</Name>
+            <Mode/>
+        </Variable>
+        <Variable>
+            <Value>0</Value>
+            <Name>PGID</Name>
+            <Mode/>
+        </Variable>
+    </Environment>
+</Container>
