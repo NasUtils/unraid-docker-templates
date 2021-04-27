@@ -11,7 +11,7 @@
     <Description>
         百度云客户端的docker镜像
     </Description>
-    <Category>netdisk:</Category>
+    <Category>download:</Category>
     <WebUI>http://[IP]:[PORT:6082]/vnc.html?autoconnect=true</WebUI>
     <Icon>https://pan.baidu.com/m-static/base/static/images/favicon.ico</Icon>
     <Data>

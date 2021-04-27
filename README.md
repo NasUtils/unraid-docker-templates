@@ -90,6 +90,18 @@ chmod a+x install-tr-control-cn.sh
 ./install-tr-control-cn.sh
 ```
 
+### aria2pro
+
+更好的Aria2容器镜像
+
+[docker镜像发布页](https://hub.docker.com/r/p3terx/aria2-pro)
+
+[github项目地址](https://github.com/P3TERX/Aria2-Pro-Docker)
+
+[帮助文档](https://p3terx.com/archives/docker-aria2-pro.html)
+
+安装容器前，先配置共享文件夹download，安装容器时，要配置下载路径/downloads，映射到主机路径/mnt/user/download。
+
 -----------
 
 ## 内网穿透
