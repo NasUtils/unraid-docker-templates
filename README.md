@@ -68,9 +68,63 @@
 
 首次登陆后，需要进设置，把下载路径设置为/home/baidu/baidunetdiskdownload
 
+### transmission
+
+先在共享里配置好下载目录，例如donwload。
+
+请直接到应用市场搜索：transmission，找到linuxserver's Repository。
+
+添加容器时，配置容器downloads路径映射为主机路径：/mnt/user/donwload/
+
+配置容器watch路径映射为主机路径：/mnt/user/donwload/watch/
+
+#### 汉化方法
+
+容器运行后，进入Console，运行命令
+
+```shell
+wget https://gitee.com/culturist/transmission-web-control/raw/master/release/install-tr-control-gitee.sh
+
+chmod a+x install-tr-control-cn.sh
+
+./install-tr-control-cn.sh
+```
+
 -----------
 
 ## 内网穿透
+
+### frps服务端
+
+[docker镜像发布页](https://hub.docker.com/r/snowdreamtech/frps)
+
+[github项目地址](https://github.com/fatedier/frp)
+
+[帮助文档](https://github.com/fatedier/frp/blob/dev/README_zh.md)
+
+frp 是一个专注于内网穿透的高性能的反向代理应用，支持 TCP、UDP、HTTP、HTTPS 等多种协议。可以将内网服务以安全、便捷的方式通过具有公网 IP 节点的中转暴露到公网。
+
+frps是服务端，frpc是客户端。
+
+容器内的配置文件路径是/etc/frp，映射到unraid主机/mnt/user/appdata/frps路径
+
+创建后第一次启动会失败，因为没有配置文件。
+
+此时，需要从[下载](https://github.com/fatedier/frp/releases)，随便找一个下载解压，找到frps.ini配置文件。
+
+把frps.ini文件放入/mnt/user/appdata/frps路径，再重启容器。
+
+### frpc客户端
+
+一般装到window、linux、macOS主机上，安装方法与frps类似。
+
+容器内的配置文件路径是/etc/frp，映射到unraid主机/mnt/user/appdata/frpc路径
+
+创建后第一次启动会失败，因为没有配置文件。
+
+此时，需要从[下载](https://github.com/fatedier/frp/releases)，随便找一个下载解压，找到frpc.ini配置文件。
+
+把frpc.ini文件放入/mnt/user/appdata/frpc路径，再重启容器。
 
 ### nps服务端
 
@@ -104,15 +158,10 @@
 最终目录接口为：
 
 ```
-/mnt/user/appdata/nps
-├── clients.json
-├── hosts.json
-├── multi_account.conf
-├── npc.conf
-├── nps.conf
-├── server.key
-├── server.pem
-└── tasks.json
+
+/mnt/user/appdata/nps ├── clients.json ├── hosts.json ├── multi_account.conf ├── npc.conf ├── nps.conf ├── server.key
+├── server.pem └── tasks.json
+
 ```
 
 默认管理账户：admin / 123
