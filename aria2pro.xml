@@ -12,6 +12,7 @@
         更好的Aria2容器镜像
     </Description>
     <Category>download:</Category>
+    <WebUI>http://[IP]:[PORT:6800]</WebUI>
     <Icon>https://imgcdn.p3terx.com/avatar/c42fdfa8aca47ec27a7c35dfa7d1dc51</Icon>
     <Data>
         <Volume>
