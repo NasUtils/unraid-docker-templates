@@ -100,9 +100,21 @@ chmod a+x install-tr-control-cn.sh
 
 [帮助文档](https://p3terx.com/archives/docker-aria2-pro.html)
 
+添加模板存储库地址：https://github.com/P3TERX/unraid-docker-templates
+
 安装容器前，先配置共享文件夹download，安装容器时，要配置下载路径/downloads，映射到主机路径/mnt/user/download。
 
-添加模板存储库地址：https://github.com/P3TERX/unraid-docker-templates
+默认RPC_SECRET=P3TERX
+
+### ariaNG
+
+[docker镜像发布页](https://hub.docker.com/r/p3terx/ariang)
+
+[github项目地址](https://github.com/mayswind/AriaNg)
+
+[帮助文档](https://p3terx.com/archives/aria2-frontend-ariang-tutorial.html)
+
+启动后，先进入AriaNg设置-RPC页签-Aria2RPC密钥：P3TERX
 
 -----------
 
