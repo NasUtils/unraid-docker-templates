@@ -56,6 +56,72 @@
 
 -----------
 
+### joplin笔记服务端
+
+#### 先安装PostgresSQL
+
+joplin server依赖数据库，如果不配置数据库，默认会使用SQLite(用于测试)。
+
+应用市场搜索：Postgres
+
+找到Postgres12.5，作者是Flight777。
+
+配置选项：
+
+因为数据库就在内网使用(不提供外网访问)，且单独提供给joplin，所以就按如下简单配置即可。
+
+POSTGRES_PASSWORD: joplin ，访问数据库的密码
+
+POSTGRES_USER: joplin，访问数据库的用户名
+
+POSTGRES_DB: joplin，数据库名称
+
+Database Storage Path: /mnt/user/appdata/joplindb/, 数据文件存储位置，根据你实际情况配置
+
+Web Interface Port: 5432，数据库端口，默认即可，如果有冲突或由多个数据库实例，也可以自行更改。
+
+#### 安装joplin server
+
+请直接到应用市场搜索：joplin，作者是Muwahhidun。
+
+配置选项：
+
+假设unRaid的IP地址是:192.168.1.2
+
+Container Port: 22300，joplin服务端口号，可以自由配置
+
+APP_BASE_URL: 建议先配置为内网访问，例如：http://192.168.1.2:22300，端口号根据上一步来配置
+
+后续配置好后，再更改为外网访问配置，例如：http(s)://joplin.domain.com:22300，也可以加nginx代理来实现https。
+
+DB_CLIENT:pg，数据库类型，不需要更改，pg代表Postgres
+
+POSTGRES_DATABASE:joplin，数据库名称，Postgres安装时配置的名称
+
+POSTGRES_USER:joplin，数据库user，Postgres安装时配置的用户名
+
+POSTGRES_PASSWORD:joplin，数据库密码，Postgres安装时配置的密码
+
+POSTGRES_HOST：192.168.1.2(例)，数据库的IP地址，Postgres安装于哪台设备它的IP，这里填写unraid的IP地址即可
+
+POSTGRES_PORT：数据库端口，Postgres安装时配置的端口
+
+#### 初次运行配置
+
+浏览器打开http://192.168.1.2:22300，提示跳到http://192.168.1.2:22300/login登陆。
+
+默认管理员账号：admin@localhost / admin
+
+添加用户账号：Users - Add user - 填写好信息 - Create user
+
+#### 配置外网访问
+
+申请(购买)SSL证书，或使用生成自签名证书。
+
+nginx可以使用Nginx Proxy Manager，配置SSL，添加Proxy Hosts。
+
+unRaid - DOCKER - joplin - 编辑 - APP_BASE_URL:改为外网ip+端口。
+
 ## 下载工具
 
 ### 百度网盘客户端baidunetdisk
