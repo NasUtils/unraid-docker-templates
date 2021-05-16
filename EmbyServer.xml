@@ -26,10 +26,6 @@
             <Name>PGID</Name>
             <Value>100</Value>
         </Variable>
-        <Variable>
-            <Name>GIDLIST</Name>
-            <Value>2</Value>
-        </Variable>
     </Environment>
     <Networking>
         <Mode>host</Mode>
