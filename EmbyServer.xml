@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Container>
+    <Beta>False</Beta>
+    <Category>MediaServer:Video MediaServer:Music MediaServer:Photos</Category>
+    <Name>EmbyServer</Name>
+    <Description>
+        Emby Server is a home media server built on top of other popular open source technologies such as Service Stack, jQuery, jQuery mobile, and Mono. Bringing together movies, music, television and more in one dazzling interface.[br][br]
+        [b][span style='color: #E80000;']Directories:[/span][/b][br]
+        [b]/config[/b] : this path is used to store Emby's configuration.[br]
+        [b]/mnt[/b] : this path is used to add library locations to Emby.[br]
+    </Description>
+    <Registry>https://hub.docker.com/r/zishuo/embyserver/</Registry>
+    <Repository>zishuo/embyserver:latest</Repository>
+    <BindTime>true</BindTime>
+    <Privileged>false</Privileged>
+    <Environment>
+        <Variable>
+            <Name>UMASK</Name>
+            <Value>000</Value>
+        </Variable>
+        <Variable>
+            <Name>PUID</Name>
+            <Value>99</Value>
+        </Variable>
+        <Variable>
+            <Name>PGID</Name>
+            <Value>100</Value>
+        </Variable>
+        <Variable>
+            <Name>GIDLIST</Name>
+            <Value>2</Value>
+        </Variable>
+    </Environment>
+    <Networking>
+        <Mode>host</Mode>
+        <Publish>
+            <Port>
+                <HostPort>8096</HostPort>
+                <ContainerPort>8096</ContainerPort>
+                <Protocol>tcp</Protocol>
+            </Port>
+        </Publish>
+    </Networking>
+    <Data>
+        <Volume>
+            <HostDir>//mnt/user/appdata/emby/</HostDir>
+            <ContainerDir>/config</ContainerDir>
+            <Mode>rw</Mode>
+        </Volume>
+        <Volume>
+            <HostDir>/mnt</HostDir>
+            <ContainerDir>/mnt</ContainerDir>
+            <Mode>rw</Mode>
+        </Volume>
+    </Data>
+    <WebUI>http://[IP]:[PORT:8096]/</WebUI>
+    <Banner>https://raw.githubusercontent.com/MediaBrowser/Emby.Resources/master/images/Logos/logo.png</Banner>
+    <Icon>https://raw.githubusercontent.com/MediaBrowser/Emby.Resources/master/images/Logos/logoicon.png</Icon>
+</Container>
