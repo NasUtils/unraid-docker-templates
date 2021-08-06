@@ -54,9 +54,30 @@
 
 使用客户端时，填写的地址是：IP:9270或者域名:9270。
 
+### 为知笔记Nginx Proxy Manager配置
+
+除了常规的代理配置选项以外，还必须在Adviced - Custom Nginx Configuration里添加
+```
+location / {
+    proxy_pass http://IP:9270;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header x−wiz−real−ip $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_set_header X-Forwarded-Proto $scheme;
+}
+```
+
+-----------
+### WebDav
+
+用于存储joplin笔记
+
 -----------
 
-### joplin笔记服务端
+### joplin笔记服务端(不建议使用)
+
+### *注意事项: joplin客户端频繁，而服务端更新没跟上，容易造成同步问题，故不建议使用，建议直接使用webdav作为服务端*
 
 #### 先安装PostgresSQL
 
@@ -134,7 +155,15 @@ unRaid - DOCKER - joplin - 编辑 - APP_BASE_URL:改为外网ip+端口。
 
 首次登陆后，需要进设置，把下载路径设置为/home/baidu/baidunetdiskdownload
 
-### transmission
+### qBittorrent(推荐，自带多国语言web界面)
+1. 应用中心搜索qBittorrent，找到linuxserver/qbittorrent
+2. 配置/downloads路径，其他默认，默认的web登陆端口是8080，首次登陆必需先用默认值。
+3. 登录UI，admin/adminadmin
+4. 修改设置页WebUI语言为中文
+5. 如果要改web端口，先取消勾选"启用 Host header 属性验证"，停止容器，编辑docker属性，把端口(Host Port 3)从8080改为例如6882
+6. 如果不想每次局域网访问都登陆，勾选"对IP子网白名单中的客户端跳过身份验证" 填入自己局域网IP网段，如：192.168.1.0/24 
+
+### transmission(因为版本更新很快，汉化没有更新，建议使用qBittorrent)
 
 先在共享里配置好下载目录，例如donwload。
 
@@ -144,7 +173,7 @@ unRaid - DOCKER - joplin - 编辑 - APP_BASE_URL:改为外网ip+端口。
 
 配置容器watch路径映射为主机路径：/mnt/user/donwload/watch/
 
-#### 汉化方法
+#### 汉化方法(汉化项目更新已经跟不上了，不建议使用)
 
 容器运行后，进入Console，运行命令
 
@@ -218,7 +247,7 @@ frps是服务端，frpc是客户端。
 
 把frpc.ini文件放入/mnt/user/appdata/frpc路径，再重启容器。
 
-### nps服务端
+### nps服务端(个人更推荐frp)
 
 [docker镜像发布页](https://hub.docker.com/r/ffdfgdfg/nps)
 
@@ -250,10 +279,15 @@ frps是服务端，frpc是客户端。
 最终目录接口为：
 
 ```
-
-/mnt/user/appdata/nps ├── clients.json ├── hosts.json ├── multi_account.conf ├── npc.conf ├── nps.conf ├── server.key
-├── server.pem └── tasks.json
-
+/mnt/user/appdata/nps
+├── clients.json
+├── hosts.json
+├── multi_account.conf
+├── npc.conf
+├── nps.conf
+├── server.key
+├── server.pem
+└── tasks.json
 ```
 
 默认管理账户：admin / 123
