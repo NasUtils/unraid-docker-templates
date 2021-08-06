@@ -69,7 +69,19 @@ location / {
 -----------
 ### WebDav
 
-用于存储joplin笔记
+添加容器，配置如下
+```
+名称:随便
+存储库:ugeek/webdav:amd64
+WebUI:http://[IP]:[PORT:9090]
+网络类型:Bridge
+添加路径: 名称:share,容器路径:/media,主机路径:自己配置
+添加变量: 名称:USERNAME,键:USERNAME,值:自己配置
+添加变量: 名称:PASSWORD,键:PASSWORD,值:自己配置
+添加变量: 名称:PUID,键:PUID,值:99
+添加变量: 名称:PGID,键:PGID,值:100
+添加端口: 名称:port,容器端口:80,主机端口:9090,连接类型:TCP
+```
 
 -----------
 
