@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <Container>
     <Name>frpc</Name>
-    <Repository>docker.mirrors.ustc.edu.cn/snowdreamtech/frpc</Repository>
+    <Repository>snowdreamtech/frpc</Repository>
     <Registry>https://hub.docker.com/r/snowdreamtech/frpc</Registry>
     <Network>host</Network>
     <Privileged>false</Privileged>

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <Container>
     <Name>wizserver</Name>
-    <Repository>docker.mirrors.ustc.edu.cn/wiznote/wizserver</Repository>
+    <Repository>wiznote/wizserver</Repository>
     <Registry>https://hub.docker.com/r/wiznote/wizserver</Registry>
     <Network>bridge</Network>
     <Privileged>false</Privileged>

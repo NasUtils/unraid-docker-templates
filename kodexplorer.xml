@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <Container>
     <Name>kodexplorer</Name>
-    <Repository>docker.mirrors.ustc.edu.cn/kodcloud/kodexplorer</Repository>
+    <Repository>kodcloud/kodexplorer</Repository>
     <Registry>https://hub.docker.com/r/kodcloud/kodexplorer</Registry>
     <Network>bridge</Network>
     <Privileged>false</Privileged>

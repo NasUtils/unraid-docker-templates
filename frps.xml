@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <Container>
     <Name>frps</Name>
-    <Repository>docker.mirrors.ustc.edu.cn/snowdreamtech/frps</Repository>
+    <Repository>snowdreamtech/frps</Repository>
     <Registry>https://hub.docker.com/r/snowdreamtech/frps</Registry>
     <Network>host</Network>
     <Privileged>false</Privileged>

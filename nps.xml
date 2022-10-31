@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <Container>
     <Name>nps</Name>
-    <Repository>docker.mirrors.ustc.edu.cn/ffdfgdfg/nps</Repository>
+    <Repository>ffdfgdfg/nps</Repository>
     <Registry>https://hub.docker.com/r/ffdfgdfg/nps</Registry>
     <Network>host</Network>
     <Privileged>false</Privileged>
